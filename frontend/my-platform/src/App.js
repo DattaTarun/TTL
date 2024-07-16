@@ -1,10 +1,18 @@
-import Navbar from './Components/Navbar/Navbar'
+import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import LandingPage from './pages/LandingPage';
+import Login from './Components/Login/Login.jsx';
+
 function App() {
   return (
     <div>
       <BrowserRouter>
-      <Navbar/>
+        <Routes>
+          <Route path="/landing" element={<LandingPage />} />
+          <Route path="/" element={<Login />} />
+        </Routes>
+        {/* <LandingPage /> */}
+        <Login />
       </BrowserRouter>
     </div>
   );
