@@ -11,11 +11,6 @@ function App() {
           <Route path="/landing" element={<LandingPage />} />
           <Route path="/" element={<Login />} />
         </Routes>
-<<<<<<< HEAD
-        {/* <LandingPage /> */}
-        <Login />
-=======
->>>>>>> master
       </BrowserRouter>
     </div>
   );

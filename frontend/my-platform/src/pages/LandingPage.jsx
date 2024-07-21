@@ -1,6 +1,5 @@
-import react from 'react'
+import React from 'react'
 import Navbar from '../Components/Navbar/Navbar'
-
 import MentorCard from '../Components/MentorCard/Mentorcard';
 import SkillCard from '../Components/SkillCard/Skillcard';
 import HackathonCard from '../Components/HackathonCard/Hackathoncard';

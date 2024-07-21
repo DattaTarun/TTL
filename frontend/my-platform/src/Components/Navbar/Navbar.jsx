@@ -3,10 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBell } from '@fortawesome/free-solid-svg-icons';
 import profileLanding from '../assets/profileLanding.png';
-<<<<<<< HEAD
-=======
 import { useEffect } from 'react';
->>>>>>> master
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
@@ -19,11 +16,6 @@ const Navbar = () => {
   const handleLogout = () => {
     navigate('/login');
   };
-<<<<<<< HEAD
-
-  return (
-    <nav className="bg-[#00000028] w-full p-4 fixed top-0 left-0 opacity-100 z-10 shadow-lg" style={{ boxShadow: '0px 10px 15px 0px rgba(0, 0, 0, 0.28)' }}>
-=======
   useEffect(() => {
     const handleScroll = () => {
       const navbar = document.getElementById('navbar'); // Get navbar element by id
@@ -47,7 +39,6 @@ const Navbar = () => {
 
   return (
     <nav id='navbar' className="bg-[#00000028] w-full p-4 fixed top-0 left-0 opacity-100 z-10 shadow-lg" style={{ boxShadow: '0px 10px 15px 0px rgba(0, 0, 0, 0.28)' }}>
->>>>>>> master
       <div className="container mx-auto flex justify-between items-center">
         <div className="flex space-x-32">
           <Link to="/find-a-mentor" className="text-[rgba(100,0,0,0.85)] font-montserrat text-xl font-semibold leading-[35px] hover:text-gray-600">Find a Mentor</Link>
