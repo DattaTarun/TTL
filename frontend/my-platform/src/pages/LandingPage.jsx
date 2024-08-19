@@ -5,7 +5,6 @@ import SkillCard from '../Components/SkillCard/Skillcard';
 import HackathonCard from '../Components/HackathonCard/Hackathoncard';
 import ProjectCard from '../Components/ProjectCard/Projectcard';
 import Footer from '../Components/Footer/Footer';
-import profileLanding from '../Components/assets/profileLanding.png'
 import profilecircle from '../Components/assets/profilecircle.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faInstagram, faLinkedin } from '@fortawesome/free-brands-svg-icons';

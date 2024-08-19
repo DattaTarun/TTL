@@ -17,6 +17,9 @@ const Login =()=>{
             alert('Invalid Credentials');
         }
     }
+    const redirectToSignup = () => {
+      navigate('/signup'); 
+  };
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
@@ -212,6 +215,19 @@ const Login =()=>{
                   >
                     Log In
                   </button>
+                  <p
+                            className="mt-4 text-center cursor-pointer"
+                            onClick={redirectToSignup}
+                            style={{
+                                fontFamily: 'Poppins',
+                                fontSize: '16px',
+                                color: 'rgba(61, 61, 61, 1)',
+                                textDecoration: 'underline',
+                                cursor: 'pointer',
+                            }}
+                        >
+                            Don't have an account? Sign Up
+                        </p>
                 </div>
               </div>
             </div>
