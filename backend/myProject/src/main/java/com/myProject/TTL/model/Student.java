@@ -1,12 +1,23 @@
 package com.myProject.TTL.model;
 import jakarta.persistence.*;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-@Entity
+import java.util.List;
+
+
+@Document(collection = "students")
 public class Student {
     @Id
     private String id;
     private String name;
     private String description;
+    private double latitude;
+    private double longitude;
+    private List<Skill> skills;
+    private List<Hackathon> hackathons;
+    private List<Forum> forums;
+    private List<Project> projects;
+    private List<Team> teams;
 
     public Student() {
 
