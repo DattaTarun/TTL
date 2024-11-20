@@ -8,7 +8,8 @@ import Community from './pages/Community.jsx';
 import Hackathon from './pages/Hackathon.jsx';
 import Search from './pages/Search.jsx';
 import MapPage from './pages/MapPage.jsx';
-
+import Message from './Components/Messages/Message.jsx'
+import Notifications from "./pages/Notifications";
 function App() {
   return (
     <BrowserRouter>
@@ -22,6 +23,8 @@ function App() {
         <Route path="/hackathons" element={<Hackathon/>}/>
         <Route path="/search" element={<Search/>}/>
         <Route path="/map" element={<MapPage />} />
+        <Route path="/messages" element={<Message />} />
+        <Route path="/notifications" element={<Notifications />} />
       </Routes>
     </BrowserRouter>
   );

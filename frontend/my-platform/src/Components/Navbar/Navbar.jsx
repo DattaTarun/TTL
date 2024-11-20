@@ -47,9 +47,12 @@ const Navbar = () => {
           <Link to="/community" className="text-[rgba(100,0,0,0.85)] font-montserrat text-xl font-semibold leading-[35px] hover:text-gray-600">Community</Link>
         </div>
         <div className="flex items-center space-x-4 relative">
-          <Link to="/notifications">
-            <FontAwesomeIcon icon={faBell} className="h-9 w-9 text-[rgba(61, 61, 61, 0.97)] hover:text-gray-600" />
-          </Link>
+        <Link to="/notifications">
+  <FontAwesomeIcon
+    icon={faBell}
+    className="h-8 w-8 text-[rgba(61, 61, 61, 0.97)] hover:text-gray-600 transition duration-200"
+  />
+</Link>
           <div className="relative flex items-center">
             <img
               src={profileLanding}
