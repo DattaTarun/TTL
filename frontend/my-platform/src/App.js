@@ -8,8 +8,10 @@ import Community from './pages/Community.jsx';
 import Hackathon from './pages/Hackathon.jsx';
 import Search from './pages/Search.jsx';
 import MapPage from './pages/MapPage.jsx';
+import UserProfile from './pages/UserProfile.jsx';
 import Message from './Components/Messages/Message.jsx'
-import Notifications from "./pages/Notifications";
+import Notifications from './pages/Notifications.jsx'
+
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +19,7 @@ function App() {
         <Route path="/" element={<Navigate to="/signup" />} />
         <Route path="/landing" element={<LandingPage />} />
         <Route path="/profile/:mentorName" element={<MentorProfile />} />
+        <Route path="/user/:id" element={<UserProfile />} /> 
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/community" element={<Community/>} />

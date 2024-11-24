@@ -7,13 +7,31 @@ import { useEffect } from 'react';
 
 const Navbar = () => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [userId, setUserId] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Fetch user ID from local storage (set during login)
+    const storedUserId = localStorage.getItem('userId');
+    if (storedUserId) {
+        setUserId(storedUserId); // Set the user ID in state
+    }
+}, []);
 
   const handleProfileClick = () => {
     setDropdownOpen(!dropdownOpen);
   };
 
+  const navigateToUserProfile = () => {
+    if (userId) {
+        navigate(`/user/${userId}`); // Navigate to the user's profile page
+    } else {
+        alert('User not logged in!');
+    }
+};
+
   const handleLogout = () => {
+    localStorage.removeItem('userId');
     navigate('/login');
   };
   useEffect(() => {
@@ -47,12 +65,9 @@ const Navbar = () => {
           <Link to="/community" className="text-[rgba(100,0,0,0.85)] font-montserrat text-xl font-semibold leading-[35px] hover:text-gray-600">Community</Link>
         </div>
         <div className="flex items-center space-x-4 relative">
-        <Link to="/notifications">
-  <FontAwesomeIcon
-    icon={faBell}
-    className="h-8 w-8 text-[rgba(61, 61, 61, 0.97)] hover:text-gray-600 transition duration-200"
-  />
-</Link>
+          <Link to="/notifications">
+            <FontAwesomeIcon icon={faBell} className="h-9 w-9 text-[rgba(61, 61, 61, 0.97)] hover:text-gray-600" />
+          </Link>
           <div className="relative flex items-center">
             <img
               src={profileLanding}
@@ -72,12 +87,12 @@ const Navbar = () => {
                   borderRadius: '10px',
                 }}
               >
-                <Link
-                  to="/profile"
-                  className="block px-4 py-2 text-[rgba(100,0,0,1)] font-poppins text-2xl leading-[30px] hover:bg-gray-100 border-b border-black"
-                >
-                  View Profile
-                </Link>
+                <button
+                                    onClick={navigateToUserProfile}
+                                    className="block w-full text-left px-4 py-2 text-[rgba(100,0,0,1)] font-poppins text-2xl leading-[30px] hover:bg-gray-100 border-b border-black"
+                                >
+                                    View Profile
+                                </button>
                 <Link
                   to="/messages"
                   className="block px-4 py-2 text-[rgba(100,0,0,1)] font-poppins text-2xl leading-[30px] hover:bg-gray-100 border-b border-black"

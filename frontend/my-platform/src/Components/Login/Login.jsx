@@ -8,18 +8,45 @@ import lockIcon from '../assets/lock1.png';
 const Login =()=>{
     const [username,setUsername]=useState('');
     const [password,setPassword]=useState('');
+    const [loading, setLoading] = useState(false);
     const navigate=useNavigate();
 
-    const handleLogin = () => {
-        if(username === 'user' && password === 'password'){
-            navigate('/landing');
-        } else {
-            alert('Invalid Credentials');
-        }
+    const handleLogin = async () => {
+      if (!username || !password) {
+        alert('Please fill in both fields.');
+        return;
     }
-    const redirectToSignup = () => {
-      navigate('/signup'); 
+
+    setLoading(true);
+      try {
+          const response = await fetch('http://localhost:3001/api/users/login', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ username, password }),
+          });
+  
+          const result = await response.json(); // Expect the backend to return a JSON object
+  
+          console.log('Login response:', result); // Debugging: Check the API response structure
+  
+          if (response.ok && result.id) {
+              alert('Login successful!');
+              localStorage.setItem('userId', result.id); // Save the user's ID from the backend
+              navigate('/landing'); // Navigate to the landing page after login
+          } else {
+              alert(result.message || 'Login failed. Please check your credentials.');
+          }
+      } catch (error) {
+          console.error('Error during login:', error);
+          alert('An error occurred. Please try again.');
+      }finally {
+        setLoading(false);
+    }
   };
+  
+  const redirectToSignup = () => {
+    navigate('/signup'); 
+};
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">

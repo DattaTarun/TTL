@@ -23,14 +23,14 @@ public class StudentService {
         studentRepository.findAll().forEach(students::add);
         return students;
     }
-    public Optional<Student> getStudent(String id){
+    public Optional<Student> getStudentById(String id){
          return studentRepository.findById(id);
     }
-    public void addStudent(Student student){
-        studentRepository.save(student);
+    public Student saveStudent(Student student){
+        return studentRepository.save(student);
     }
-    public void updateStudent(String id, Student student){
-        studentRepository.save(student);
+    public Student updateStudent(String id, Student student){
+        return studentRepository.save(student);
     }
     public void deleteStudent(String id){
        // topics.removeIf(t->t.getId().equals(id));

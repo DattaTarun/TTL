@@ -19,8 +19,8 @@ const MentorProfile = () => {
         <div className="mt-10 flex flex-col lg:flex-row gap-4">
           {/* Left section */}
           <div className="flex-1 lg:pl-80 lg:pr-10">
-            <div className="">
-              <button className="text-[rgba(100,0,0,1)] border border-[rgba(100,0,0,1)] px-4 py-1 rounded bg-white shadow-md">MORE</button>
+            <div classname="">
+            <button className="text-[rgba(100,0,0,1)] border border-[rgba(100,0,0,1)] px-4 py-1 rounded bg-white shadow-md">MORE</button>
             </div>
             <div className="flex justify-center lg:justify-start">
               <img src={profilecircle} alt="mentor" className="w-60 h-60 rounded-full" />
@@ -28,18 +28,13 @@ const MentorProfile = () => {
             <div className="mt-4 text-left">
               <h2 className="text-3xl font-semibold">{`{USERXYZ}`}</h2>
               <p className="text-[#821D30]">256 connections <span className="ml-2">⭐⭐⭐⭐</span></p>
-              <div className="flex space-x-4 mt-6">
-                <button className="bg-[#821D30] text-white py-2 px-6 rounded-lg shadow-2xl hover:shadow-xl transition-shadow">CONNECT</button>
-                <Link to="/messages">
-                  <button className="bg-[#591C1C] text-white py-2 px-6 rounded-lg shadow-2xl hover:shadow-xl transition-shadow">MESSAGE</button>
-                </Link>
-              </div>
+              <button className="mt-6 bg-[#821D30] text-white py-2 px-6 rounded-lg shadow-2xl hover:shadow-xl transition-shadow">CONNECT</button>
               <p className="mt-2">Students mentored: <span className='text-[#821D30]'>100</span></p>
               <div className="mt-4">
                 <h3 className="text-xl font-semibold">BADGES</h3>
                 <div className="flex mt-2 space-x-2">
                   {/* Add badge images here */}
-                  <span className="text-2xl">🏅 🏅 🏅</span>
+                  <span classname="text-2xl">🏅 🏅 🏅</span>
                 </div>
               </div>
             </div>
@@ -70,7 +65,7 @@ const MentorProfile = () => {
                   <h4 className="font-semibold">PhD Project Monitoring System</h4>
                   <p className="text-sm text-gray-600">A comprehensive platform where teachers can evaluate the thesis...</p>
                 </div>
-                <div className="p-4 bg-[#f0f0f0] shadow-2xl rounded-lg w-1/2">
+                <div className="p-4 bg-rgba(61,61,0,0) shadow-2xl rounded-lg w-1/2">
                   <h4 className="font-semibold">SmartHome IoT System</h4>
                   <p className="text-sm text-gray-600">An Internet of Things (IoT) project that automates home appliances...</p>
                 </div>

@@ -14,8 +14,10 @@ import python from '../Components/assets/python.png'
 import ui from '../Components/assets/python.png'
 import hacklipse from '../Components/assets/hacklipse.jpg'
 import flamingo from '../Components/assets/flamingo.jpg'
+import { getAllMentors,getAllSkills } from '../services/apiService';
+import { useState,useEffect } from 'react';
 
-
+/*
 const mentors = [
     {
       name: "Komal Dua",
@@ -42,8 +44,8 @@ const mentors = [
       image: profilecircle
     }
   ];
-  
-  const skills = [
+  */
+  /*const skills = [
     {
       name: "C++",
       description: "Tap to learn more!",
@@ -65,7 +67,7 @@ const mentors = [
       image: ui
     }
   ];
-  
+  */
   const hackathons = [
     {
       name: "Hacklipse 5.0",
@@ -113,6 +115,12 @@ const mentors = [
   ];
 
 const LandingPage=() => {
+  const [mentors, setMentors] = useState([]);
+  const [skills, setSkills] = useState([]);
+  useEffect(() => {
+    getAllMentors().then(setMentors);
+    getAllSkills().then(setSkills);
+}, []);
     return(
         <div className='flex flex-col'>
             <Navbar />
@@ -138,8 +146,8 @@ const LandingPage=() => {
             <section className="my-12 px-4 md:px-20">
                 <h2 className="text-3xl font-montserrat font-semibold  mb-8 text-gray-800">FEATURED MENTORS</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-                {mentors.map((mentor, index) => (
-                    <MentorCard key={index} mentor={mentor} />
+                {mentors.map((mentor) => (
+                    <MentorCard key={mentor.id} mentor={mentor} />
                 ))}
                 </div>
             </section>
@@ -147,8 +155,8 @@ const LandingPage=() => {
             <section className="my-12 px-4 md:px-20">
                 <h2 className="text-3xl font-montserrat font-semibold mb-8 text-gray-800">TRENDING SKILLS</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-                {skills.map((skill, index) => (
-                    <SkillCard key={index} skill={skill} />
+                {skills.map((skill) => (
+                    <SkillCard key={skill.id} skill={skill} />
                 ))}
                 </div>
             </section>

@@ -1,9 +1,7 @@
 package com.myProject.TTL.repository;
 
 import com.myProject.TTL.model.Student;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.mongodb.repository.MongoRepository;
 
-public interface StudentRepository extends CrudRepository<Student, String> {
-
-
+public interface StudentRepository extends MongoRepository<Student, String> {
 }

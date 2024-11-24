@@ -4,12 +4,20 @@ import { useNavigate } from 'react-router-dom';
 const SignUp = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
-    const [rollNo, setRollNo] = useState('');
+    const [password, setPassword] = useState('');
     const navigate = useNavigate();
 
-    const handleSignUp = () => {
-        // Your sign-up logic here
-        alert(`Name: ${name}, Email: ${email}, Roll No: ${rollNo}`);
+    const handleSignUp = async () => {
+        const response = await fetch('http://localhost:3001/api/users/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: name, email, password }),
+        });
+        const result = await response.text();
+        alert(result);
+        if (response.ok && result === "User signed up successfully") {
+            navigate('/login');
+        }
     };
 
     const redirectToLogin = () => {
@@ -193,8 +201,8 @@ const SignUp = () => {
                         </label>
                         <input
                             type="text"
-                            value={rollNo}
-                            onChange={(e) => setRollNo(e.target.value)}
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
                             className="p-2 mb-4 border border-gray-400 rounded-lg"
                             style={{ width: '100%' }}
                         />

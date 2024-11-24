@@ -27,11 +27,11 @@ public class MyController {
     }
     @RequestMapping("/students/{id}")
     public Optional<Student> getStudent(@PathVariable String id){
-        return studentService.getStudent(id);
+        return studentService.getStudentById(id);
     }
     @RequestMapping(method = RequestMethod.POST, value = "/students")
     public void addStudent(@RequestBody Student student){
-        studentService.addStudent(student);
+        studentService.saveStudent(student);
     }
     @RequestMapping(method = RequestMethod.PUT, value = "/students/{id}")
     public void updateStudent(@RequestBody Student student, @PathVariable String id){
