@@ -25,6 +25,10 @@ public class UserService {
         return userRepository.findById(id);
     }
 
+    public List<User> getUsersByKeyword(String keyword) {
+        return userRepository.findByKeywordsContaining(keyword);
+    }
+
     public User updateUser(User user) {
         Optional<User> existingUserOpt = userRepository.findById(user.getId());
         if (existingUserOpt.isPresent()) {

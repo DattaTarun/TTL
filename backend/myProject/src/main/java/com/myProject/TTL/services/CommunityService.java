@@ -29,4 +29,6 @@ public class CommunityService {
     public void deleteCommunity(String id) {
         communityRepository.deleteById(id);
     }
+    
+
 }

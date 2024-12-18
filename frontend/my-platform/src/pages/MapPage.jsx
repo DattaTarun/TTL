@@ -16,13 +16,32 @@ const MapPage = () => {
       width: '100%',
       height: '400px',
     };
-    
+    const communities = [
+      { name: "Git / Github", members: 248, lat: 30.3529, lng: 76.3665 },
+      { name: "React Developers", members: 325, lat: 30.3395, lng: 76.3800 },
+      { name: "Node.js Enthusiasts", members: 189, lat: 30.3362, lng: 76.3922 },
+    ];
     // Sample marker locations (optional, you can remove if not needed)
     const markers = [
       { lat: 28.7091, lng: 77.1050, label: 'User 1' },
       { lat: 28.7021, lng: 77.1015, label: 'User 2' },
       { lat: 28.7061, lng: 77.1035, label: 'User 3' },
     ];
+
+    const calculateDistance = (lat1, lon1, lat2, lon2) => {
+      const R = 6371; 
+      const dLat = ((lat2 - lat1) * Math.PI) / 180;
+      const dLon = ((lon2 - lon1) * Math.PI) / 180;
+      const a =
+        Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos((lat1 * Math.PI) / 180) *
+          Math.cos((lat2 * Math.PI) / 180) *
+          Math.sin(dLon / 2) *
+          Math.sin(dLon / 2);
+      const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      const distance = R * c; 
+      return distance;
+    };
 
     useEffect(() => {
         // Request the user's location
@@ -83,15 +102,31 @@ const MapPage = () => {
 
         {/* Browse Communities Section */}
         <div className="my-12 px-4 md:px-20 w-full">
-          <h2 className="text-2xl font-semibold text-gray-800 mb-6">BROWSE COMMUNITIES</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
-            {/* Sample Community Cards */}
-            <div className="bg-[#821D30] p-6 rounded-lg shadow-lg text-center text-white">
-              <h3 className="text-xl font-semibold">Git / Github</h3>
-              <p className="mt-2">Members: 248</p>
-            </div>
-            {/* Repeat as needed */}
-          </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+    {communities.map((community, index) => (
+      <div
+        key={index}
+        className="bg-[#821D30] p-6 rounded-lg shadow-lg text-center text-white"
+      >
+        <h3 className="text-xl font-semibold">{community.name}</h3>
+        <p className="mt-2">Members: {community.members}</p>
+        {currentLocation ? (
+          <p className="mt-2">
+            Distance:{" "}
+            {calculateDistance(
+              currentLocation.lat,
+              currentLocation.lng,
+              community.lat,
+              community.lng
+            ).toFixed(2)}{" "}
+            km
+          </p>
+        ) : (
+          <p className="mt-2">Calculating distance...</p>
+        )}
+      </div>
+    ))}
+  </div>
         </div>
       </div>
     );

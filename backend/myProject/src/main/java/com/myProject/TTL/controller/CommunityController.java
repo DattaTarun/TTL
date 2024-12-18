@@ -34,4 +34,5 @@ public class CommunityController {
     public void deleteCommunity(@PathVariable String id) {
         communityService.deleteCommunity(id);
     }
+   
 }

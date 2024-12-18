@@ -45,7 +45,7 @@ const mentors = [
     }
   ];
   */
-  /*const skills = [
+  const skills = [
     {
       name: "C++",
       description: "Tap to learn more!",
@@ -67,7 +67,7 @@ const mentors = [
       image: ui
     }
   ];
-  */
+  
   const hackathons = [
     {
       name: "Hacklipse 5.0",
@@ -116,10 +116,8 @@ const mentors = [
 
 const LandingPage=() => {
   const [mentors, setMentors] = useState([]);
-  const [skills, setSkills] = useState([]);
   useEffect(() => {
     getAllMentors().then(setMentors);
-    getAllSkills().then(setSkills);
 }, []);
     return(
         <div className='flex flex-col'>
@@ -132,21 +130,21 @@ const LandingPage=() => {
                         <FontAwesomeIcon icon={faInstagram} className="h-9 w-9 text-[rgba(61, 61, 61, 0.97)] hover:text-gray-600" />
                         <FontAwesomeIcon icon={faLinkedin} className="h-9 w-9 text-[rgba(61, 61, 61, 0.97)] hover:text-gray-600" />
                     </div>
-                    <p className="text-gray-600  max-w-sm mx-auto">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam gravida ligula quis lorem faucibus, in scelerisque nibh sodales. Pellentesque cursus interdum lobortis. Phasellus congue viverra egestas.ksfhgdshjfghjsdgfhjdsgfhjsgfhjsfghdsjfghjsdf
+                    <p className="text-gray-600  max-w-sm mx-auto">Welcome to TTL!
+                    Your go-to platform for connecting with mentors, exploring communities, and unlocking your potential. Discover opportunities to learn, grow, and collaborate with like-minded individuals, all in one place. Join TTL and take the next step in your journey of personal and professional development!
                     </p>
                     <div className="flex flex-wrap justify-center mt-10 mb-16">
                         <div className='w-56 h-36 bg-[rgb(175,140,140)] text-white font-montserrat text-xl font-semibold relative'><span className=' absolute bottom-3 right-5'>Connect</span></div>
                         <div className='w-56 h-36 bg-[rgb(137,67,67)] text-white font-montserrat text-xl font-semibold relative'><span className=' absolute bottom-3 right-5'>Communicate</span></div>
                         <div className='w-56 h-36 bg-[rgba(100,0,0,0.85)] text-white font-montserrat text-xl font-semibold relative'><span className=' absolute bottom-3 right-5'>Cultivate</span></div>
                     </div>
-                    
                 </div>
             </header>
 
             <section className="my-12 px-4 md:px-20">
                 <h2 className="text-3xl font-montserrat font-semibold  mb-8 text-gray-800">FEATURED MENTORS</h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 mt-8">
-                {mentors.map((mentor) => (
+                {mentors.slice(0, 4).map((mentor) => (
                     <MentorCard key={mentor.id} mentor={mentor} />
                 ))}
                 </div>

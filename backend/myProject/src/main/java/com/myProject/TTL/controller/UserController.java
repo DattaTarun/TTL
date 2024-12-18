@@ -53,4 +53,8 @@ public ResponseEntity<?> login(@RequestBody User user) {
         user.setId(id); // Ensure the ID is set correctly
         return userService.updateUser(user);
     }
+    @GetMapping("/keyword")
+    public List<User> getUsersByKeyword(@RequestParam String keyword) {
+        return userProfileService.getUsersByKeyword(keyword);
+    }
 }

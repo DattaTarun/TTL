@@ -11,6 +11,8 @@ import MapPage from './pages/MapPage.jsx';
 import UserProfile from './pages/UserProfile.jsx';
 import Message from './Components/Messages/Message.jsx'
 import Notifications from './pages/Notifications.jsx'
+import Projects from './pages/Projects.jsx';
+import Findmentor from './pages/Findmentor.jsx';
 
 function App() {
   return (
@@ -28,6 +30,8 @@ function App() {
         <Route path="/map" element={<MapPage />} />
         <Route path="/messages" element={<Message />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/projects" element={<Projects/>}></Route>
+        <Route path="/find-a-mentor" element={<Findmentor/>}></Route>
       </Routes>
     </BrowserRouter>
   );

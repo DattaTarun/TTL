@@ -15,6 +15,8 @@ public class User {
     private String domains; // Add domains of interest
     private String skills; // Add skills
     private String resumeLink; // Add resume link
+    private double latitude;
+    private double longitude;
 
     public User() {}
 
